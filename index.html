@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkyTravel - Passagens Aéreas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }
+    body {
+      background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), 
+                  url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=for0') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      padding: 20px;
+    }
+
+
+    /* Cabeçalho */
+    header {
+      background: #4b1eb2;
+      color: white;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    header h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+    nav ul {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    nav ul li a:hover {
+      color: #ffcc00;
+    }
+
+    /* Barra de pesquisa */
+    .search-box {
+      background: #5e23d2;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+    }
+    .search-container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+      max-width: 1000px;
+      width: 100%;
+    }
+    .search-tabs {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+    .search-tabs label {
+      font-weight: 500;
+      cursor: pointer;
+      color: #333;
+    }
+    .search-form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      align-items: center;
+    }
+    .search-form .field {
+      display: flex;
+      align-items: center;
+      background: #f3f3f3;
+      border-radius: 8px;
+      padding: 10px 15px;
+      flex: 1;
+      min-width: 180px;
+    }
+    .search-form .field span {
+      margin-right: 8px;
+    }
+    .search-form input, .search-form select {
+      border: none;
+      background: transparent;
+      flex: 1;
+      font-size: 1rem;
+      outline: none;
+    }
+    .btn-pesquisa {
+      background: #e63946;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    .btn-pesquisa:hover {
+      background: #ff4b2b;
+    }
+
+    /* Cards Section */
+    .cards-section {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+    }
+    .cards-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      max-width: 1300px;
+      width: 100%;
+      justify-items: center;
+    }
+
+    /* Estilo dos cards no visual do exemplo */
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s, box-shadow 0.3s;
+      width: 100%;
+      max-width: 320px;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .duration-badge {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: #000;
+      color: #fff;
+      font-size: 12px;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+    .card-content {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .card-content .tipo {
+      font-size: 11px;
+      letter-spacing: 1px;
+      color: #777;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .card-content h3 {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #222;
+    }
+    .card-content p {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 4px;
+    }
+    .rating {
+      display: flex;
+      align-items: center;
+      margin: 6px 0;
+    }
+    .rating span:first-child {
+      background: #4caf50;
+      color: white;
+      font-weight: bold;
+      font-size: 13px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      margin-right: 8px;
+    }
+    .rating span:last-child {
+      color: #f1c40f;
+      font-size: 14px;
+    }
+    .economia {
+      display: inline-block;
+      background: #d4f7dc;
+      color: #2e7d32;
+      font-weight: bold;
+      font-size: 13px;
+      padding: 5px 10px;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+
+    .card.esgotado {
+  position: relative;
+  opacity: 0.6;
+  pointer-events: none; /* desabilita clique nos elementos */
+}
+
+.card.esgotado button {
+  cursor: not-allowed;
+}
+
+.card.esgotado::before {
+  content: "Esgotado";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #ff4d4d;
+  color: white;
+  padding: 5px 10px;
+  font-weight: bold;
+  border-radius: 5px;
+  z-index: 10;
+  font-size: 14px;
+}
+
+    .preco-antigo {
+      text-decoration: line-through;
+      color: #999;
+      font-size: 13px;
+      margin-top: 6px;
+    }
+    .price {
+      font-size: 20px;
+      font-weight: bold;
+      color: #e63946;
+      margin: 5px 0;
+    }
+    .taxas {
+      font-size: 12px;
+      color: #888;
+    }
+    .passaporte {
+      margin-top: 10px;
+      font-size: 13px;
+      color: #f15c5c;
+      display: flex;
+      align-items: center;
+    }
+    .passaporte::before {
+      content: "📘";
+      margin-right: 6px;
+    }
+    .card button {
+      background: #4b1eb2;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 10px;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      margin-top: auto;
+      transition: background 0.3s;
+    }
+    .card button:hover {
+      background: #6a30d6;
+    }
+.card {
+  cursor: pointer; /* para indicar que é clicável */
+}
+.card button,
+.card .btn-saiba-mais {
+  display: none; /* esconde os botões */
+}
+
+    .card {
+  width: 320px;
+  border-radius: 12px;
+  overflow: hidden;
+  font-family: 'Arial', sans-serif;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border: 1px solid #e0e0e0;
+  background-color: #fff;
+  margin: 20px auto;
+  position: relative;
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.duration-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #000;
+  color: #fff;
+  padding: 5px 10px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.card-content {
+  padding: 16px;
+}
+
+.tipo {
+  font-size: 0.75rem;
+  color: #777;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 4px;
+  letter-spacing: 1px;
+}
+
+h3 {
+  font-size: 1.1rem;
+  margin: 0 0 6px 0;
+  font-weight: bold;
+  color: #222;
+}
+
+p {
+  margin: 4px 0;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.avaliacao-box {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 6px 0;
+}
+
+.nota {
+  background-color: #e0f2e9;
+  color: #2e7d32;
+  padding: 3px 8px;
+  font-size: 0.85rem;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.estrelas {
+  color: #f4c150;
+  font-size: 1rem;
+}
+
+.economia {
+  background-color: #d4f4dd;
+  color: #2e7d32;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  display: inline-block;
+  margin-top: 8px;
+}
+
+.preco-antigo {
+  text-decoration: line-through;
+  color: #888;
+  margin-top: 6px;
+}
+
+.price {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #111;
+  margin-top: -2px;
+}
+
+.taxas {
+  font-size: 0.85rem;
+  color: #777;
+}
+
+.passaporte {
+  font-size: 0.85rem;
+  color: #555;
+  margin-top: 6px;
+}
+
+.icone-passaporte {
+  margin-right: 6px;
+}
+
+.btn-comprar {
+  width: 100%;
+  padding: 10px;
+  background-color: #5e17eb;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.btn-saiba-mais {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #5e17eb;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.card.esgotado {
+  position: relative;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.card.esgotado button {
+  cursor: not-allowed;
+}
+
+.card.esgotado::before {
+  content: "Esgotado";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #ff4d4d;
+  color: white;
+  padding: 5px 10px;
+  font-weight: bold;
+  border-radius: 5px;
+  z-index: 10;
+  font-size: 14px;
+}
+
+
+.hero {
+  background: linear-gradient(to right, #4b1eb2, #6a30d6);
+  color: white;
+  padding: 100px 20px;
+  text-align: center;
+  border-radius: 12px;
+  margin: 40px auto;
+  max-width: 1200px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.hero-content h2 {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #eee;
+  max-width: 600px;
+  margin-inline: auto;
+}
+
+.btn-destinos {
+  background: #ffcc00;
+  color: #4b1eb2;
+  padding: 14px 28px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.btn-destinos:hover {
+  background: #ffd633;
+}
+
+
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>SkyTravel</h1>
+ <nav>
+  <ul>
+    <!-- <li><a href="#">Voos</a></li> --> <!-- Removido -->
+    <li><a href="sobre.html">Sobre Nós</a></li>
+    <li><a href="contato.html">Contato</a></li>
+  </ul>
+</nav>
+
+  </header>
+
+<section class="hero">
+  <div class="hero-content">
+    <h2>Descubra seu próximo destino</h2>
+    <p>Explore ofertas exclusivas com a SkyTravel e viva experiências inesquecíveis pelo mundo.</p>
+    <a href="#destinos" class="btn-destinos">Ver Destinos</a>
+    <section class="cards-section" id="destinos">
+
+  </div>
+</section>
+
+
+  <section class="cards-section">
+    <div class="cards-container">
+
+      <!-- Rio de Janeiro -->
+      <div class="card">
+        <img src="imagens/Rio.jpg" alt="Rio de Janeiro">
+        <div class="duration-badge">6 DIAS / 5 NOITES</div>
+        <div class="card-content">
+          <span class="tipo">PACOTE</span>
+          <h3>Pacotes para Rio de Janeiro</h3>
+          <p>Saindo de São Paulo</p>
+          <p>Hotel + Aéreo</p>
+          <div class="rating">
+            <span>7.1</span>
+            <span>★★★★★</span>
+          </div>
+          <div class="economia">Economize R$117</div>
+          <p class="preco-antigo">R$951</p>
+          <p class="price">R$834</p>
+          <p class="taxas">Taxas e impostos não inclusos</p>
+          <p class="passaporte">Passaporte SkyTravel - Você acumulará 371 pontos</p>
+          <button>Comprar</button>
+          <a href="rio.html" class="btn-saiba-mais">Saiba Mais</a>
+        </div>
+      </div>
+
+      <!-- Paris -->
+      <div class="card">
+        <img src="imagens/Paris.jpg" alt="Paris">
+        <div class="duration-badge">6 DIAS / 5 NOITES</div>
+        <div class="card-content">
+          <span class="tipo">PACOTE</span>
+          <h3>Pacotes para Paris</h3>
+          <p>Voo Internacional - Econômico</p>
+          <div class="rating">
+            <span>7.1</span>
+            <span>★★★★</span>
+          </div>
+          <p>Saindo de São Paulo</p>
+          <p>Hotel + Aéreo</p>
+          <div class="economia">Economize R$200</div>
+          <p class="preco-antigo">R$2.056</p>
+          <p class="price">R$1.856</p>
+          <p class="taxas">Taxas e impostos não inclusos</p>
+          <p class="passaporte">Passaporte SkyTravel - Você acumulará 371 pontos</p>
+          <button>Comprar</button>
+          <a href="paris.html" class="btn-saiba-mais">Saiba Mais</a>
+        </div>
+      </div>
+
+      <!-- Nova York -->
+      <div class="card">
+        <img src="imagens/NovaYork.jpg" alt="Nova York">
+        <div class="duration-badge">7 DIAS / 6 NOITES</div>
+        <div class="card-content">
+          <span class="tipo">PACOTE</span>
+          <h3>Pacotes para Nova York</h3>
+          <p>Voo Internacional - Executivo</p>
+          <div class="rating">
+            <span>8.2</span>
+            <span>★★★★★</span>
+          </div>
+          <p>Saindo de São Paulo</p>
+          <p>Hotel + Aéreo</p>
+          <div class="economia">Economize R$350</div>
+          <p class="preco-antigo">R$3.550</p>
+          <p class="price">R$3.200</p>
+          <p class="taxas">Taxas e impostos não inclusos</p>
+          <p class="passaporte">Passaporte SkyTravel - Você acumulará 450 pontos</p>
+          <button>Comprar</button>
+          <a href="novayork.html" class="btn-saiba-mais">Saiba Mais</a>
+        </div>
+      </div>
+
+<!-- Pacote para São Paulo  -->
+<div class="card">
+  <img src="imagens/Saopaulo.jpg" alt="São Paulo">
+  <div class="duration-badge">3 DIAS / 2 NOITES</div>
+  <div class="card-content">
+    <span class="tipo">PACOTE</span>
+    <h3>Pacotes para São Paulo</h3>
+    <p>Voo Nacional - Econômico</p>
+    
+    <div class="avaliacao-box">
+      <span class="nota">7.2</span>
+      <span class="estrelas">★★</span>
+    </div>
+    
+    <p>Saindo do Rio de Janeiro</p>
+    <p>Hotel + Aéreo</p>
+
+    <div class="economia">Economize R$58</div>
+    
+    <p class="preco-antigo">R$708</p>
+    <p class="price">R$650</p>
+    <p class="taxas">Taxas e impostos não inclusos</p>
+    
+    <p class="passaporte">
+      <span class="icone-passaporte">📘</span>
+      Passaporte SkyTravel - Você acumulará 190 pontos
+    </p>
+
+    <button class="btn-comprar">Comprar</button>
+    <a href="sao-paulo.html" class="btn-saiba-mais">Saiba Mais</a>
+  </div>
+</div>
+
+
+
+    <!-- Tóquio -->
+    <div class="card esgotado">
+      <img src="imagens/Toquio.jpg" alt="Tóquio">
+      <div class="duration-badge">--</div>
+      <div class="card-content">
+        <span class="tipo">PACOTE</span>
+        <h3>Tóquio</h3>
+        <p>Voo Internacional - Executivo</p>
+        <p>Data: 01/11/2025</p>
+        <div class="economia">--</div>
+        <p class="preco-antigo">--</p>
+        <p class="price">R$5.400</p>
+        <p class="taxas">Taxas e impostos não inclusos</p>
+        <button disabled>Comprar</button>
+        <a href="toquio.html" class="btn-saiba-mais">Saiba Mais</a>
+      </div>
+    </div>
+
+
+
+
+      
+    <!-- Buenos Aires -->
+    <div class="card esgotado">
+        <img src="imagens/Buenos.jpg" alt="Buenos Aires">
+        <div class="duration-badge">--</div>
+        <div class="card-content">
+            <span class="tipo">PACOTE</span>
+            <h3>Buenos Aires</h3>
+            <p>Voo Internacional - Promocional</p>
+            <p>Data: 25/09/2025</p>
+            <div class="economia">--</div>
+            <p class="preco-antigo">--</p>
+            <p class="price">R$1.900</p>
+            <p class="taxas">Taxas e impostos não inclusos</p>
+            <button disabled>Comprar</button>
+            <a href="#" class="btn-saiba-mais">Saiba Mais</a>
+        </div>
+    </div>
+
+    </div>
+  </section>
+
+  <script>
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', () => {
+      const link = card.querySelector('.btn-saiba-mais');
+      if (link && link.href) {
+        window.location.href = link.href;
+      }
+    });
+  });
+</script>
+
+
+
+</body>
+</html>

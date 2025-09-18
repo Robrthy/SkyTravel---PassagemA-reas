@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Pacote Clássico - Paris | SkyTravel</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: #f5f6fa;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 14px;
+      box-shadow: 0 6px 20px rgba(0,0,0,.1);
+      margin-top: 30px;
+    }
+    h1 {
+      color: #5e23d2;
+      font-size: 26px;
+      margin-bottom: 5px;
+    }
+    h2 {
+      margin-top: 25px;
+      color: #222;
+      font-size: 20px;
+      border-left: 4px solid #5e23d2;
+      padding-left: 10px;
+    }
+    .hotel-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .hotel-header span {
+      font-size: 20px;
+      color: #f4b400;
+    }
+    .nota {
+      background: #5e23d2;
+      color: #fff;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+    img {
+      width: 100%;
+      border-radius: 12px;
+      margin: 15px 0;
+    }
+    p {
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+    ul {
+      margin: 15px 0 25px 20px;
+    }
+    ul li {
+      margin-bottom: 8px;
+    }
+    .mapa {
+      margin: 20px 0;
+    }
+    .mapa iframe {
+      width: 100%;
+      height: 250px;
+      border-radius: 10px;
+      border: none;
+    }
+    .btn-voltar {
+      display: inline-block;
+      margin-top: 20px;
+      background: #5e23d2;
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+    }
+    .btn-voltar:hover {
+      background: #4317a5;
+    }
+
+    .servicos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    .servicos .item {
+      background: #f9f9f9;
+      border-left: 4px solid #5e23d2;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 500;
+      color: #333;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .servicos .item:hover {
+      background: #ede7fb;
+      transform: translateX(4px);
+    }
+
+    #botao-comprar {
+      background-color: #5e23d2;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 6px rgba(94, 35, 210, 0.3);
+      margin-top: 15px;
+    }
+
+    #botao-comprar:hover {
+      background-color: #4317a5;
+      box-shadow: 0 6px 10px rgba(67, 23, 165, 0.4);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Pacote Clássico - Paris 🗼</h1>
+    <div class="hotel-header">
+      <h3>Hotel Novotel Paris</h3>
+      <span>★★★★</span>
+      <span class="nota">8.5</span>
+    </div>
+    <img src="https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba?auto=format&fit=crop&w=1200&q=60" alt="Hotel Novotel Paris">
+    
+    <h2>Descrição</h2>
+    <p>O <strong>Hotel Novotel Paris</strong> é a escolha perfeita para quem busca conforto, boa localização e serviços de alta qualidade. Situado próximo a pontos turísticos como a Torre Eiffel e o Arco do Triunfo, oferece fácil acesso ao metrô e ao centro cultural da cidade.</p>
+    
+    <h2>Serviços inclusos</h2>
+    <div class="servicos">
+      <div class="item">✔ Wi-Fi gratuito em todas as áreas</div>
+      <div class="item">✔ Café da manhã completo incluso</div>
+      <div class="item">✔ Academia e spa modernos</div>
+      <div class="item">✔ Restaurante com culinária internacional</div>
+      <div class="item">✔ Bar lounge e espaço para coworking</div>
+      <div class="item">✔ Recepção 24h com atendimento em português</div>
+    </div>
+
+    <h2>Detalhes do Pacote</h2>
+    <p><strong>Duração:</strong> 6 dias / 5 noites</p>
+    <p><strong>Voo:</strong> Direto SP ✈ Paris pela KLM</p>
+    <p><strong>Preço:</strong> R$ <span id="preco-total">7200,00</span> <em>por pessoa</em> (taxas não inclusas)</p>
+    <p><strong>Extras:</strong> Transfer aeroporto-hotel, city tour completo + ingresso para o Louvre.</p>
+
+    <button id="botao-comprar">Comprar</button>
+
+    <h2>Localização</h2>
+    <div class="mapa">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.999017482354!2d2.292292615674579!3d48.85837360873365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66fdeb5d49f97%3A0x3fbb0efb2c6f0!2sTorre%20Eiffel!5e0!3m2!1spt-BR!2sfr!4v1700000000000" allowfullscreen></iframe>
+    </div>
+
+    <a href="index.html" class="btn-voltar">⬅ Voltar</a>
+  </div>
+
+  <script>
+    const precoBase = 7200.00; // preço por pessoa
+    const botaoComprar = document.getElementById('botao-comprar');
+
+    // Dados da viagem
+    const dataViagem = 'Sex 15 Nov até Qua 20 Nov';
+    const horarioViagem = '19:30';
+
+    botaoComprar.addEventListener('click', () => {
+      const urlFormulario = `formularioparis.html?total=${precoBase.toFixed(2)}&data=${encodeURIComponent(dataViagem)}&hora=${encodeURIComponent(horarioViagem)}`;
+      window.open(urlFormulario, '_blank');
+    });
+  </script>
+</body>
+</html>

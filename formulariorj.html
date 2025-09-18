@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Formulário e Cartões de Embarque</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #f9f9f9;
+      border-radius: 12px;
+    }
+    h1, h2 {
+      color: #5c2aff;
+      text-align: center;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin: 10px 0 5px;
+    }
+    select, input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+    button {
+      margin: 15px 0;
+      padding: 12px 20px;
+      background: #5c2aff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      display: block;
+      width: 100%;
+    }
+    button:hover {
+      background-color: #4317b8;
+    }
+    .passageiro {
+      background: white;
+      border: 1px solid #ddd;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    .cartoes {
+      margin-top: 40px;
+    }
+    .cartao {
+      background: #e0e0ff;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 25px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    }
+    .cartao p {
+      margin: 6px 0;
+      font-size: 16px;
+    }
+    .cartao strong {
+      color: #3a0ca3;
+    }
+
+    
+
+  </style>
+</head>
+<body>
+
+<h1>Reserva de Passageiros</h1>
+
+<label for="qtd">Quantidade de Passageiros:</label>
+<select id="qtd">
+  <!-- opções geradas por JS -->
+</select>
+
+<div id="form-nomes"></div>
+
+<button id="btnGerarCartoes">Gerar Cartões de Embarque</button>
+
+<div class="cartoes" id="cartoesContainer"></div>
+
+<script>
+  const precoUnitario = 4250.00;
+  const dataViagem = 'Sáb 10 Out até Ter 13 Out';
+  const horarioViagem = '08:00';
+
+  const selectQtd = document.getElementById('qtd');
+  const formNomesDiv = document.getElementById('form-nomes');
+  const btnGerar = document.getElementById('btnGerarCartoes');
+  const cartoesContainer = document.getElementById('cartoesContainer');
+
+  // Gera opções de 1 a 10 passageiros
+  for(let i=1; i<=10; i++){
+    const option = document.createElement('option');
+    option.value = i;
+    option.textContent = i;
+    selectQtd.appendChild(option);
+  }
+
+  // Inicializa com 1 passageiro
+  selectQtd.value = 1;
+
+  function criarInputsNomes(qtd){
+    formNomesDiv.innerHTML = '';
+    for(let i=1; i<=qtd; i++){
+      const div = document.createElement('div');
+      div.className = 'passageiro';
+      div.innerHTML = `
+        <label for="nome${i}">Nome do Passageiro ${i}:</label>
+        <input type="text" id="nome${i}" name="nome${i}" required />
+      `;
+      formNomesDiv.appendChild(div);
+    }
+  }
+
+  selectQtd.addEventListener('change', () => {
+    criarInputsNomes(parseInt(selectQtd.value));
+    cartoesContainer.innerHTML = ''; // limpa cartões se mudar quantidade
+  });
+
+  btnGerar.addEventListener('click', () => {
+    const qtd = parseInt(selectQtd.value);
+    let nomes = [];
+    for(let i=1; i<=qtd; i++){
+      const nomeInput = document.getElementById(`nome${i}`);
+      if(!nomeInput.value.trim()){
+        alert(`Preencha o nome do passageiro ${i}`);
+        nomeInput.focus();
+        return;
+      }
+      nomes.push(nomeInput.value.trim());
+    }
+
+    // Limpa cartões anteriores
+    cartoesContainer.innerHTML = '';
+
+    const valorPorPassageiro = precoUnitario.toFixed(2).replace('.', ',');
+
+    // Cria um cartão para cada passageiro
+    nomes.forEach(nome => {
+      const cartao = document.createElement('div');
+      cartao.className = 'cartao';
+      cartao.innerHTML = `
+        <h2>Cartão de Embarque</h2>
+        <p><strong>Passageiro:</strong> ${nome}</p>
+        <p><strong>Hotel:</strong> Arena Copacabana</p>
+        <p><strong>Origem:</strong> Aeroporto de Guarulhos (GRU)</p>
+        <p><strong>Destino:</strong> Rio de Janeiro (SDU)</p>
+        <p><strong>Saída:</strong> ${horarioViagem}</p>
+        <p><strong>Data:</strong> ${dataViagem}</p>
+        <p><strong>Valor:</strong> R$ ${valorPorPassageiro}</p>
+      `;
+      cartoesContainer.appendChild(cartao);
+    });
+  });
+
+  // Carrega inputs iniciais
+  criarInputsNomes(parseInt(selectQtd.value));
+</script>
+
+</body>
+</html>

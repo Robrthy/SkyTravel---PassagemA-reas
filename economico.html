@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Pacote Econômico - Paris | SkyTravel</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: #f5f6fa;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 14px;
+      box-shadow: 0 6px 20px rgba(0,0,0,.1);
+      margin-top: 30px;
+    }
+    h1 {
+      color: #009688;
+      font-size: 26px;
+      margin-bottom: 5px;
+    }
+    h2 {
+      margin-top: 25px;
+      color: #222;
+      font-size: 20px;
+      border-left: 4px solid #009688;
+      padding-left: 10px;
+    }
+    .hotel-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .hotel-header span {
+      font-size: 20px;
+      color: #f4b400;
+    }
+    .nota {
+      background: #009688;
+      color: #fff;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+    img {
+      width: 100%;
+      border-radius: 12px;
+      margin: 15px 0;
+    }
+    p {
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+    ul {
+      margin: 15px 0 25px 20px;
+    }
+    ul li {
+      margin-bottom: 8px;
+    }
+    .mapa {
+      margin: 20px 0;
+    }
+    .mapa iframe {
+      width: 100%;
+      height: 250px;
+      border-radius: 10px;
+      border: none;
+    }
+    .btn-voltar {
+      display: inline-block;
+      margin-top: 20px;
+      background: #009688;
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+    }
+    .btn-voltar:hover {
+      background: #00796b;
+    }
+
+    .servicos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    .servicos .item {
+      background: #f9f9f9;
+      border-left: 4px solid #009688;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 500;
+      color: #333;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .servicos .item:hover {
+      background: #e0f7f4;
+      transform: translateX(4px);
+    }
+
+    #botao-comprar {
+      background-color: #009688;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 150, 136, 0.3);
+      margin-top: 15px;
+    }
+
+    #botao-comprar:hover {
+      background-color: #00796b;
+      box-shadow: 0 6px 10px rgba(0, 121, 107, 0.4);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Pacote Econômico - Paris 💶</h1>
+    <div class="hotel-header">
+      <h3>Hotel Ibis Paris Bastille</h3>
+      <span>★★★</span>
+      <span class="nota">7.4</span>
+    </div>
+    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=60" alt="Hotel Ibis Paris">
+
+    <h2>Descrição</h2>
+    <p>O <strong>Hotel Ibis Paris Bastille</strong> é perfeito para quem deseja conhecer Paris gastando pouco, mas sem abrir mão do conforto. Localizado em uma região charmosa, próximo a restaurantes, bares e linhas de metrô, o hotel oferece excelente custo-benefício.</p>
+
+    <h2>Serviços inclusos</h2>
+    <div class="servicos">
+      <div class="item">✅ Wi-Fi gratuito em todas as áreas</div>
+      <div class="item">☕ Café da manhã completo incluso</div>
+      <div class="item">🏋️‍♂️ Academia e spa modernos</div>
+      <div class="item">🍽 Restaurante com culinária internacional</div>
+      <div class="item">🍷 Bar lounge e espaço para coworking</div>
+      <div class="item">🛎 Recepção 24h com atendimento em português</div>
+    </div>
+
+    <h2>Detalhes do Pacote</h2>
+    <p><strong>Duração:</strong> 4 dias / 3 noites</p>
+    <p><strong>Voo:</strong> Direto SP ✈ Paris pela Air France</p>
+    <p><strong>Preço:</strong> R$ <span id="preco-total">5400,00</span> <em>por pessoa</em> (taxas não inclusas)</p>
+    <p><strong>Extras:</strong> Inclui bagagem de mão e traslado básico aeroporto-hotel.</p>
+
+    <button id="botao-comprar">Comprar</button>
+
+    <h2>Localização</h2>
+    <div class="mapa">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.3784561699895!2d2.368877615674839!3d48.85349500871015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66df85e91f8f9%3A0x7e0042a5fdb19f8b!2sIbis%20Paris%20Bastille%20Opera!5e0!3m2!1spt-BR!2sfr!4v1700000000000" allowfullscreen></iframe>
+    </div>
+
+    <a href="index.html" class="btn-voltar">⬅ Voltar</a>
+  </div>
+
+  <script>
+    const precoBase = 5400.00; // preço por pessoa
+    const botaoComprar = document.getElementById('botao-comprar');
+
+    // Dados da viagem
+    const dataViagem = 'Sex 15 Nov até Seg 18 Nov';
+    const horarioViagem = '21:00';
+
+    botaoComprar.addEventListener('click', () => {
+      const urlFormulario = `formularioparis.html?total=${precoBase.toFixed(2)}&data=${encodeURIComponent(dataViagem)}&hora=${encodeURIComponent(horarioViagem)}`;
+      window.open(urlFormulario, '_blank');
+    });
+  </script>
+</body>
+</html>

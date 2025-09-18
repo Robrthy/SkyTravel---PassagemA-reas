@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pacote Clássico - Rio de Janeiro</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: #f9f9f9;
+      color: #333;
+      margin: 20px;
+    }
+    .pacote-detalhe {
+      max-width: 900px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      padding: 20px 30px;
+      margin: 0 auto;
+    }
+    .pacote-detalhe h1 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 8px;
+    }
+    .pacote-detalhe .subtitulo {
+      font-weight: 600;
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 12px;
+    }
+    .subtitulo .estrela {
+      color: #f4b400;
+      font-weight: 700;
+      background: #cde8f5;
+      padding: 2px 6px;
+      border-radius: 5px;
+      margin-left: 8px;
+      font-size: 14px;
+      vertical-align: middle;
+    }
+    img {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .descricao {
+      font-size: 15px;
+      line-height: 1.5;
+      color: #444;
+      margin-bottom: 25px;
+    }
+    .lista-servicos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 40px;
+      margin-bottom: 25px;
+    }
+    .lista-servicos div {
+      background: #eaf5ff;
+      border-radius: 8px;
+      padding: 10px 15px;
+      font-size: 14px;
+      color: #0366d6;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .lista-servicos div::before {
+      content: "✔";
+      color: #038c30;
+      font-weight: 700;
+    }
+    .detalhes {
+      margin-bottom: 25px;
+    }
+    .detalhes h3 {
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 10px;
+    }
+    .detalhes p {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.4;
+    }
+    .localizacao {
+      margin-bottom: 20px;
+    }
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      margin-top: 20px;
+    }
+    .btn-voltar, #botao-comprar {
+      display: inline-block;
+      background: #5e23d2;
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 28px;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: background 0.3s ease;
+      cursor: pointer;
+      text-align: center;
+      border: none;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+    .btn-voltar:hover, #botao-comprar:hover {
+      background: #4317a5;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="pacote-detalhe">
+    <h1>Pacote Clássico - Rio de Janeiro</h1>
+    <div class="subtitulo">
+      Hotel Windsor Marapendi
+      <span class="estrela">8.3 ★★★★</span>
+    </div>
+
+    <img src="imagens/rio_hotel.jpg" alt="Hotel Windsor Marapendi" />
+
+    <h3>Descrição</h3>
+    <p class="descricao">
+      O Hotel Windsor Marapendi oferece conforto e luxo em uma localização privilegiada próxima às praias da Barra da Tijuca. Ideal para quem quer curtir o melhor do Rio com excelente infraestrutura e serviços completos.
+    </p>
+
+    <h3>Serviços Inclusos</h3>
+    <div class="lista-servicos">
+      <div>Wi-Fi gratuito em todas as áreas</div>
+      <div>Café da manhã incluso</div>
+      <div>Piscina ao ar livre</div>
+      <div>Transporte para o aeroporto incluso</div>
+      <div>Academia completa</div>
+      <div>Restaurante com culinária regional e internacional</div>
+    </div>
+
+    <h3>Detalhes do Pacote</h3>
+    <div class="detalhes">
+      <p>Saída do Aeroporto de Guarulhos</p>
+      <p>Voo direto São Paulo ✈ Rio de Janeiro</p>
+      <p>Preço: R$ 6.500,00 por pessoa (6 dias / 5 noites)</p>
+      <p>Transfer do hotel para o aeroporto incluso no pacote</p>
+    </div>
+
+    <button id="botao-comprar">Comprar</button>
+    <br>
+    <a href="rio.html" class="btn-voltar">← Voltar</a>
+
+    <!-- Mapa do hotel no final -->
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3675.947987631488!2d-43.39872648445999!3d-23.0126640849699!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9bd7b7c4d1445e%3A0xa8b2a4bc92b0f3b2!2sWindsor%20Marapendi%20Hotel!5e0!3m2!1spt-BR!2sbr!4v1694589901746!5m2!1spt-BR!2sbr"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Mapa do Hotel Windsor Marapendi"
+    ></iframe>
+  </div>
+
+<script>
+  const precoUnitario = 6500.00;
+  const dataViagem = 'Sáb 10 Out até Ter 15 Out';
+  const horarioViagem = '10:00';
+
+  document.getElementById('botao-comprar').addEventListener('click', () => {
+    // Abre o formulário passando os dados pela URL
+    const urlFormulario = `formulariorj.html?qtd=1&total=${precoUnitario.toFixed(2)}&data=${encodeURIComponent(dataViagem)}&hora=${encodeURIComponent(horarioViagem)}`;
+    window.open(urlFormulario, '_blank');
+  });
+</script>
+
+</body>
+</html>

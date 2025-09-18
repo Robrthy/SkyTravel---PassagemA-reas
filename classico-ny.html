@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Pacote Clássico - Nova York | SkyTravel</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: #f5f6fa;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 14px;
+      box-shadow: 0 6px 20px rgba(0,0,0,.1);
+      margin-top: 30px;
+    }
+
+    h1 {
+      color: #5e23d2;
+      font-size: 26px;
+      margin-bottom: 5px;
+    }
+
+    h2 {
+      margin-top: 25px;
+      color: #222;
+      font-size: 20px;
+      border-left: 4px solid #5e23d2;
+      padding-left: 10px;
+    }
+
+    .hotel-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .hotel-header span {
+      font-size: 20px;
+      color: #f4b400;
+    }
+
+    .nota {
+      background: #5e23d2;
+      color: #fff;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 12px;
+      margin: 15px 0;
+    }
+
+    p {
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .servicos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    .servicos .item {
+      background: #f0f0ff;
+      border-left: 4px solid #5e23d2;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 500;
+      color: #333;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .servicos .item:hover {
+      background: #fceaea;
+      transform: translateX(4px);
+    }
+
+    .mapa {
+      margin: 20px 0;
+    }
+
+    .mapa iframe {
+      width: 100%;
+      height: 250px;
+      border-radius: 10px;
+      border: none;
+    }
+
+    .btn-voltar {
+      display: inline-block;
+      margin-top: 20px;
+      background: #5e23d2;
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .btn-voltar:hover {
+      background: #4317a5;
+    }
+
+    #botao-comprar {
+      background-color: #5e23d2;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 6px rgba(94, 35, 210, 0.3);
+      margin-top: 15px;
+    }
+
+    #botao-comprar:hover {
+      background-color: #4317a5;
+      box-shadow: 0 6px 10px rgba(67, 23, 165, 0.4);
+    }
+
+    .preco {
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    .preco del {
+      color: #888;
+      margin-right: 8px;
+    }
+
+    .preco strong {
+      color: #e63946;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Pacote Clássico - Nova York 🏙</h1>
+    <div class="hotel-header">
+      <h3>Hotel Midtown Manhattan</h3>
+      <span>★★★★☆</span>
+      <span class="nota">8.6</span>
+    </div>
+
+    <img src="imagens/classico-ny.jpg" alt="Hotel Midtown Manhattan">
+
+    <h2>Descrição</h2>
+    <p>O <strong>Hotel Midtown Manhattan</strong> oferece uma estadia sofisticada em uma das áreas mais vibrantes de Nova York. Aproveite uma experiência única com conforto, praticidade e acesso facilitado aos principais pontos turísticos da cidade que nunca dorme.</p>
+
+    <h2>Serviços Inclusos</h2>
+    <div class="servicos">
+      <div class="item">✅ Wi-Fi gratuito</div>
+      <div class="item">☕ Café da manhã completo incluso</div>
+      <div class="item">🏋️ Academia e spa</div>
+      <div class="item">🍴 Restaurante internacional</div>
+      <div class="item">💼 Espaço coworking moderno</div>
+      <div class="item">🛎️ Recepção 24h em português</div>
+    </div>
+
+<h2>Detalhes do Pacote</h2>
+<p><strong>Duração:</strong> 6 dias / 5 noites</p>
+<p><strong>Voo:</strong> Direto SP ✈ Nova York - Delta Airlines</p>
+<p><strong>Preço:</strong> R$ <span id="preco-total">7500,00</span> <em>por pessoa</em> (taxas não inclusas)</p>
+<p><strong>Extras:</strong> Inclui traslado, bagagem de mão e city tour.</p>
+
+
+    <button id="botao-comprar">Comprar</button>
+
+    <h2>Localização</h2>
+    <div class="mapa">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.738133616171!2d-73.98006448459357!3d40.7531822793271!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a8f0b63c6d%3A0x4f0b2c0913df0d04!2sPod%2051%20Hotel!5e0!3m2!1spt-BR!2sbr!4v1600000000000!5m2!1spt-BR!2sbr" allowfullscreen></iframe>
+    </div>
+
+    <a href="novayork.html" class="btn-voltar">⬅ Voltar</a>
+  </div>
+
+  <script>
+    const precoBase = 7500.00;
+    const dataViagem = 'Seg 17 Fev até Sáb 22 Fev';
+    const horarioViagem = '21:45';
+
+    document.getElementById('botao-comprar').addEventListener('click', () => {
+      const url = `formulariony.html?total=${precoBase.toFixed(2)}&data=${encodeURIComponent(dataViagem)}&hora=${encodeURIComponent(horarioViagem)}`;
+      window.open(url, '_blank');
+    });
+  </script>
+</body>
+</html>

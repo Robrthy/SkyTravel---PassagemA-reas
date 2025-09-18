@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Pacote Luxo - Nova York | SkyTravel</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: #f5f6fa;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 14px;
+      box-shadow: 0 6px 20px rgba(0,0,0,.1);
+      margin-top: 30px;
+    }
+    h1 {
+      color: #5e23d2;
+      font-size: 26px;
+      margin-bottom: 5px;
+    }
+    h2 {
+      margin-top: 25px;
+      color: #222;
+      font-size: 20px;
+      border-left: 4px solid #5e23d2;
+      padding-left: 10px;
+    }
+    .hotel-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .hotel-header span {
+      font-size: 20px;
+      color: #f4b400;
+    }
+    .nota {
+      background: #5e23d2;
+      color: #fff;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+    img {
+      width: 100%;
+      border-radius: 12px;
+      margin: 15px 0;
+    }
+    p {
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+    ul {
+      margin: 15px 0 25px 20px;
+    }
+    ul li {
+      margin-bottom: 8px;
+    }
+    .mapa {
+      margin: 20px 0;
+    }
+    .mapa iframe {
+      width: 100%;
+      height: 250px;
+      border-radius: 10px;
+      border: none;
+    }
+    .btn-voltar {
+      display: inline-block;
+      margin-top: 20px;
+      background: #5e23d2;
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+    }
+    .btn-voltar:hover {
+      background: #4317a5;
+    }
+
+    .servicos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    .servicos .item {
+      background: #f9f9f9;
+      border-left: 4px solid #5e23d2;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 500;
+      color: #333;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .servicos .item:hover {
+      background: #ede7fb;
+      transform: translateX(4px);
+    }
+
+    #botao-comprar {
+      background-color: #5e23d2;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 6px rgba(94, 35, 210, 0.3);
+      margin-top: 15px;
+    }
+
+    #botao-comprar:hover {
+      background-color: #4317a5;
+      box-shadow: 0 6px 10px rgba(67, 23, 165, 0.4);
+    }
+
+    .preco {
+      font-size: 18px;
+      font-weight: 600;
+    }
+    .preco del {
+      color: #777;
+      margin-right: 10px;
+    }
+    .preco .highlight {
+      color: #e63946;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Pacote Luxo - Nova York 💎</h1>
+    <div class="hotel-header">
+      <h3>The Plaza Hotel</h3>
+      <span>★★★★★</span>
+      <span class="nota">9.4</span>
+    </div>
+    <img src="imagens/nova_luxo.jpg" alt="The Plaza Hotel - Nova York">
+
+    <h2>Descrição</h2>
+    <p>Experimente Nova York com todo o luxo e sofisticação que você merece. O <strong>The Plaza Hotel</strong>, ícone da cidade, oferece suítes elegantes, vista para o Central Park e atendimento impecável. O pacote inclui voos Emirates de ida e volta, traslados exclusivos e experiências premium para aproveitar ao máximo a Big Apple.</p>
+
+    <h2>Serviços inclusos</h2>
+    <div class="servicos">
+      <div class="item">✔ Recepção 24h e serviço de quarto</div>
+      <div class="item">✔ Spa de alto padrão e piscinas exclusivas</div>
+      <div class="item">✔ Traslado em veículos de luxo</div>
+      <div class="item">✔ Passeios premium e experiências exclusivas</div>
+      <div class="item">✔ Café da manhã incluso</div>
+      <div class="item">✔ Refeições e bebidas inclusas (opções variadas)</div>
+    </div>
+
+    <h2>Detalhes do Pacote</h2>
+    <p><strong>Duração:</strong> 8 dias / 7 noites</p>
+    <p><strong>Voo:</strong> Emirates ✈️ (ida e volta)</p>
+    <p><strong>Preço:</strong> R$ <span id="preco-total">13.000,00</span> <em>por pessoa</em> (taxas não inclusas)</p>
+    <p><strong>Extras:</strong> Traslados exclusivos, experiências premium e serviço all-inclusive de luxo.</p>
+
+
+    <button id="botao-comprar">Comprar</button>
+
+    <h2>Localização</h2>
+    <div class="mapa">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.799641879583!2d-73.97536828459361!3d40.76446997932656!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c258f9e1b57a91%3A0xf3bfe2a8f3c3f3e6!2sThe%20Plaza%20Hotel!5e0!3m2!1spt-BR!2sbr!4v1600000000001!5m2!1spt-BR!2sbr" allowfullscreen></iframe>
+    </div>
+
+    <a href="novayork.html" class="btn-voltar">⬅ Voltar</a>
+  </div>
+
+  <script>
+    const precoBase = 13000.00; 
+    const botaoComprar = document.getElementById('botao-comprar');
+
+    const dataViagem = 'Sex 17 Jan até Sáb 25 Jan';
+    const horarioViagem = '23:00';
+
+    botaoComprar.addEventListener('click', () => {
+const urlFormulario = `formulariony.html?total=${precoBase.toFixed(2)}&data=${encodeURIComponent(dataViagem)}&hora=${encodeURIComponent(horarioViagem)}`;
+
+      window.open(urlFormulario, '_blank');
+    });
+  </script>
+</body>
+</html>

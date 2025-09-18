@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pacote Luxo - Rio de Janeiro</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: #f9f9f9;
+      color: #333;
+      margin: 20px;
+    }
+
+    .pacote-detalhe {
+      max-width: 900px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      padding: 20px 30px;
+      margin: 0 auto;
+    }
+
+    .pacote-detalhe h1 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 8px;
+    }
+
+    .pacote-detalhe .subtitulo {
+      font-weight: 600;
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 12px;
+    }
+
+    .subtitulo .estrela {
+      color: #f4b400;
+      font-weight: 700;
+      background: #cde8f5;
+      padding: 2px 6px;
+      border-radius: 5px;
+      margin-left: 8px;
+      font-size: 14px;
+      vertical-align: middle;
+    }
+
+    img {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .descricao {
+      font-size: 15px;
+      line-height: 1.5;
+      color: #444;
+      margin-bottom: 25px;
+    }
+
+    .lista-servicos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 40px;
+      margin-bottom: 25px;
+    }
+
+    .lista-servicos div {
+      background: #eaf5ff;
+      border-radius: 8px;
+      padding: 10px 15px;
+      font-size: 14px;
+      color: #0366d6;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .lista-servicos div::before {
+      content: "✔";
+      color: #038c30;
+      font-weight: 700;
+    }
+
+    .detalhes {
+      margin-bottom: 25px;
+    }
+
+    .detalhes h3 {
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 10px;
+    }
+
+    .detalhes p {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.4;
+      margin-bottom: 8px;
+    }
+
+    .localizacao {
+      margin-bottom: 20px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .btn-comprar {
+      display: block;
+      background: #6200ee;
+      color: #fff;
+      text-align: center;
+      padding: 14px;
+      font-weight: bold;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      margin-top: 15px;
+      transition: background 0.3s ease;
+    }
+
+    #botao-comprar {
+  background-color: #6200ea;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 6px rgba(98, 0, 234, 0.3);
+  margin-top: 15px;
+}
+
+#botao-comprar:hover {
+  background-color: #3700b3;
+  box-shadow: 0 6px 10px rgba(55, 0, 179, 0.5);
+}
+
+    .btn-voltar {
+      display: inline-block;
+      background: #5e23d2;
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 28px;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: background 0.3s ease;
+      cursor: pointer;
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    
+
+  </style>
+</head>
+<body>
+
+  <div class="pacote-detalhe">
+    <h1>Pacote Luxo - Rio de Janeiro</h1>
+    <div class="subtitulo">
+      Belmond Copacabana Palace
+      <span class="estrela">9.5 ★★★★★</span>
+    </div>
+
+    <img src="imagens/hotel--rio.jpg" alt="Belmond Copacabana Palace" />
+
+    <h3>Descrição</h3>
+    <p class="descricao">
+      O Belmond Copacabana Palace é sinônimo de luxo e sofisticação, localizado na famosa praia de Copacabana. Desfrute de suítes elegantes, serviço impecável e infraestrutura completa para uma experiência inesquecível no Rio de Janeiro.
+    </p>
+
+    <h3>Serviços Inclusos</h3>
+    <div class="lista-servicos">
+      <div>Wi-Fi premium em todas as áreas</div>
+      <div>Serviço de mordomo 24h</div>
+      <div>Piscina climatizada</div>
+      <div>Spa e centro de bem-estar</div>
+      <div>Gastronomia gourmet</div>
+      <div>Traslado VIP aeroporto-hotel-aeroporto</div>
+    </div>
+
+    <h3>Detalhes do Pacote</h3>
+    <div class="detalhes">
+      <p>Saída do Aeroporto de Guarulhos</p>
+      <p>Voo direto São Paulo ✈ Rio de Janeiro</p>
+      <p><strong>Preço total:</strong> R$ 15.000,00 (8 dias / 7 noites)</p>
+      <p><strong>Preço por pessoa:</strong> R$ 7.500,00</p>
+      <p>Traslado VIP incluso com serviço exclusivo</p>
+      <a href="pacote-rj-luxo.html" class="btn-comprar">Comprar</a>
+    </div>
+
+    <h3>Localização</h3>
+    <div class="localizacao">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3675.426054914003!2d-43.18231768505469!3d-22.97110658502525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x997f7e0b3f7ee2d9%3A0xc16ac0f9b3a3c4f6!2sBelmond%20Copacabana%20Palace!5e0!3m2!1spt-BR!2sbr!4v1694467900000!5m2!1spt-BR!2sbr"
+        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+
+    <a href="rio.html" class="btn-voltar">← Voltar</a>
+  </div>
+
+</body>
+</html>

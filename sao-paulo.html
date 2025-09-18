@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>SkyTravel - Pacotes São Paulo</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:"Segoe UI",Arial,sans-serif;background:#f2f4f8;color:#333;}
+    header{
+      background:linear-gradient(135deg,#5e23d2,#9a36f3);
+      color:#fff;padding:25px;text-align:center;
+      font-size:22px;font-weight:600;letter-spacing:1px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.15);
+    }
+    .pacotes-container{
+      max-width:1300px;margin:40px auto;
+      display:grid;grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
+      gap:25px;padding:0 20px;
+    }
+    .pacote{
+      background:#fff;border-radius:16px;overflow:hidden;
+      box-shadow:0 6px 20px rgba(0,0,0,0.08);
+      transition:all .3s ease;display:flex;flex-direction:column;
+    }
+    .pacote:hover{transform:translateY(-6px);box-shadow:0 10px 25px rgba(0,0,0,0.15);}
+    .pacote img{width:100%;height:180px;object-fit:cover;}
+    .pacote-content{padding:18px;flex:1;}
+    .tag{display:inline-block;background:#5e23d2;color:#fff;font-size:13px;
+      padding:4px 10px;border-radius:20px;margin-bottom:10px;font-weight:600;}
+    .pacote-content h2{font-size:18px;font-weight:700;margin-bottom:5px;color:#222;}
+    .datas{font-size:14px;color:#666;margin-bottom:12px;}
+    .info{font-size:14px;margin:6px 0;color:#444;}
+    .hotel-info{display:flex;align-items:center;gap:8px;}
+    .nota{background:#eee;padding:3px 7px;border-radius:6px;font-size:13px;font-weight:bold;}
+    .estrelas{color:#f4b400;font-size:15px;}
+    .economia{background:#e0f8ec;color:#008f4c;font-size:14px;padding:5px 10px;
+      border-radius:8px;font-weight:600;margin:12px 0;display:inline-block;}
+    .preco-antigo{font-size:14px;color:#888;text-decoration:line-through;}
+    .preco{font-size:22px;font-weight:bold;color:#e63946;margin:5px 0 12px;}
+    .rodape{background:#fafafa;padding:14px 18px;font-size:13px;
+      border-top:1px solid #eee;color:#5e23d2;display:flex;flex-direction:column;gap:10px;}
+    .rodape span{color:#111;font-weight:600;}
+    .btns{display:flex;gap:12px;}
+    .btn{flex:1;text-align:center;padding:10px;border-radius:8px;text-decoration:none;
+      font-weight:600;font-size:14px;transition:.3s ease;}
+    .btn-reservar{background:#ff6b6b;color:#fff;}
+    .btn-reservar:hover{background:#e14a4a;}
+    .btn-saibamais{background:#5e23d2;color:#fff;}
+    .btn-saibamais:hover{background:#4317a5;}
+  </style>
+</head>
+<body>
+
+  <header>🏙️ SkyTravel - Pacotes Incríveis para São Paulo ✈️</header>
+
+  <div class="pacotes-container">
+
+    <!-- Pacote Econômico -->
+    <div class="pacote">
+      <img src="imagens/sp_economico.jpg" alt="São Paulo Econômico" />
+      <div class="pacote-content">
+        <span class="tag">3 Dias / 2 Noites</span>
+        <h2>Pacote Econômico</h2>
+        <p class="datas">De <strong>Sex 20 Set</strong> até <strong>Dom 22 Set</strong></p>
+        <p class="info">✈ Voo direto RJ ✈ SP - Gol</p>
+        <div class="hotel-info">
+          <p class="info">🏨 Hotel Central Paulista</p>
+          <span class="nota">7.2</span><span class="estrelas">★★</span>
+        </div>
+        <span class="economia">Economize R$58</span>
+        <p class="preco-antigo">R$ 708</p>
+        <p class="preco">R$ 650</p>
+      </div>
+      <div class="rodape">
+        SkyTravel - Você acumularia <span>190 pontos</span>
+        <div class="btns">
+          <a href="#" class="btn btn-reservar">Reservar</a>
+          <a href="economico-sp.html" target="_blank" class="btn btn-saibamais">Saiba Mais</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pacote Clássico -->
+    <div class="pacote">
+      <img src="imagens/sp_classico.jpg" alt="São Paulo Clássico" />
+      <div class="pacote-content">
+        <span class="tag">5 Dias / 4 Noites</span>
+        <h2>Pacote Clássico</h2>
+        <p class="datas">De <strong>Qua 25 Set</strong> até <strong>Dom 29 Set</strong></p>
+        <p class="info">✈ Voo direto RJ ✈ SP - LATAM</p>
+        <div class="hotel-info">
+          <p class="info">🏨 Hotel Ibis Paulista</p>
+          <span class="nota">8.1</span><span class="estrelas">★★★</span>
+        </div>
+        <span class="economia">Economize R$120</span>
+        <p class="preco-antigo">R$ 1.200</p>
+        <p class="preco">R$ 1.080</p>
+      </div>
+      <div class="rodape">
+        SkyTravel - Você acumularia <span>350 pontos</span>
+        <div class="btns">
+          <a href="#" class="btn btn-reservar">Reservar</a>
+          <a href="classico-sp.html" target="_blank" class="btn btn-saibamais">Saiba Mais</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pacote Luxo -->
+    <div class="pacote">
+      <img src="imagens/sp_luxo.jpg" alt="São Paulo Luxo" />
+      <div class="pacote-content">
+        <span class="tag">7 Dias / 6 Noites</span>
+        <h2>Pacote Luxo</h2>
+        <p class="datas">De <strong>Seg 30 Set</strong> até <strong>Dom 06 Out</strong></p>
+        <p class="info">✈ Voo direto RJ ✈ SP - Azul</p>
+        <div class="hotel-info">
+          <p class="info">🏨 Hotel Unique</p>
+          <span class="nota">9.5</span><span class="estrelas">★★★★★</span>
+        </div>
+        <span class="economia">Economize R$500</span>
+        <p class="preco-antigo">R$ 3.800</p>
+        <p class="preco">R$ 3.300</p>
+      </div>
+      <div class="rodape">
+        SkyTravel - Você acumularia <span>700 pontos</span>
+        <div class="btns">
+          <a href="#" class="btn btn-reservar">Reservar</a>
+          <a href="luxo-sp.html" target="_blank" class="btn btn-saibamais">Saiba Mais</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
